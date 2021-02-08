@@ -9,6 +9,7 @@ const searchFood = () =>{
 
 const displayFood = meals =>{
     const foodContainer = document.getElementById('food-container');
+    foodContainer.innerHTML = "";
     meals.forEach(meal => {
         const foodDiv = document.createElement('div');
         foodDiv.className='food-img';
@@ -23,12 +24,18 @@ const displayFood = meals =>{
     });
 }
 
-const displayFoodDEtails = name=>{
-    // const url=`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`)
+const displayFoodDEtails = name =>{
+    const url=`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`
+    fetch(url)
     .then(res => res.json())
-    .then(data=>{
-       
-    })
+    .then(data=> renderFoodDetails(data));
    
+}
+
+const renderFoodDetails = meal =>{
+    console.log(meal);
+    const mealDiv = document.getElementById('countryDetails');
+    mealDiv.innerHTML =`
+    
+    `
 }
